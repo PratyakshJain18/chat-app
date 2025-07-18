@@ -1,16 +1,24 @@
-# minimal_chat_app
+# 💬  Chat App (Flutter + Firebase)
 
-A new Flutter project.
+Followed a tutorial by Mitch Koko But made Some changes on my own . My First Firebase and Firestore app
+A simple real-time chat application built using **Flutter** and **Firebase**. This app allows users to **register**, **log in**, and **chat one-on-one** with other users.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔐 User Authentication (Email & Password)
+- 🧑‍🤝‍🧑 List of Registered Users
+- 💬 Real-time One-on-One Messaging
+- 📦 Firebase Firestore for chat storage
+- 🔄 Live StreamBuilder-based UI updates
+- ✅ Message sending and receiving with timestamps
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+- **Flutter** (Frontend)
+- **Firebase Authentication** (Login/Signup)
+- **Cloud Firestore** (Real-time messaging)
+- **GetX** (for navigation and state, if you used it)
