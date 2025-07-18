@@ -21,4 +21,4 @@ A simple real-time chat application built using **Flutter** and **Firebase**. Th
 - **Flutter** (Frontend)
 - **Firebase Authentication** (Login/Signup)
 - **Cloud Firestore** (Real-time messaging)
-- **GetX** (for navigation and state, if you used it)
+- **GetX** (for navigation and state)
