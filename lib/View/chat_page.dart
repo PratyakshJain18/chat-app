@@ -2,13 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal_chat_app/services/auth/auth_service.dart';
 import 'package:minimal_chat_app/services/chat/chat_service.dart';
+import 'package:minimal_chat_app/services/noti/noti_service.dart';
 
 import '../Components/text_field.dart';
 
 class ChatPage extends StatelessWidget {
+  final notiService=NotiService();
+  late  String? lastNotifiedid;
   final String receiverEmail;
   final String receiverId;
-  ChatPage({super.key, required this.receiverEmail, required this.receiverId});
+  ChatPage({super.key, required this.receiverEmail, required this.receiverId, this.lastNotifiedid});
   final TextEditingController messageController = TextEditingController();
   final ChatService chatService = ChatService();
   final AuthService authService = AuthService();
@@ -31,6 +34,20 @@ class ChatPage extends StatelessWidget {
         } else if (snapshot.connectionState == ConnectionState.waiting) {
           return Text("Loading");
         } else {
+          final messages = snapshot.data!.docs;
+          if(messages.isNotEmpty)
+            {
+              final lastMessage= messages.last;
+              final messageSenderId=lastMessage['senderId'];
+              final messageId=lastMessage.id;
+              if(messageSenderId!=senderId && lastNotifiedid!=messageId)
+                {
+                  lastNotifiedid=messageId;
+                  notiService.requestNotificationPermission();
+                  notiService.showNotification(title: lastMessage['senderEmail'] , body: lastMessage['message']);
+
+                }
+            }
           return ListView(
             children:
                 snapshot.data!.docs

@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:minimal_chat_app/Controller/settings_controller.dart';
 import 'package:minimal_chat_app/firebase_options.dart';
+import 'package:minimal_chat_app/services/noti/noti_service.dart';
 import 'package:minimal_chat_app/themes/light_mode.dart';
 
 import 'Controller/home_controller.dart';
@@ -19,9 +21,14 @@ void main() async {
   Get.lazyPut<LoginRegisterController>(() => LoginRegisterController());
   Get.lazyPut<SettingsController>(() => SettingsController());
   WidgetsFlutterBinding.ensureInitialized();
+  NotiService().initNotification();
   await Firebase.initializeApp( options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
+  await notiService.initNotification();
 }
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+FlutterLocalNotificationsPlugin();
+final notiService = NotiService();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
