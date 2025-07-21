@@ -22,3 +22,10 @@ A simple real-time chat application built using **Flutter** and **Firebase**. Th
 - **Firebase Authentication** (Login/Signup)
 - **Cloud Firestore** (Real-time messaging)
 - **GetX** (for navigation and state)
+
+---
+
+## 👨‍💻 Author
+
+**Pratyaksh Jain**  
+_Pre-1st year, NIT Allahabad_
